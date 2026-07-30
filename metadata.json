@@ -1,0 +1,10 @@
+{
+  "name": "MAZEN AI",
+  "description": "A premium commercial AI assistant developed by Eng. Mazen Osama, built for intelligent conversations, code generation, voice interaction, and real web search.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
