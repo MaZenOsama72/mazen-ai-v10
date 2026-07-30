@@ -68,68 +68,68 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </button>
         </div>
 
-        {/* Modal Body with Left Navigation Sidebar */}
-        <div className="flex flex-1 overflow-hidden">
-          {/* Settings Tabs */}
-          <div className="w-48 border-r border-white/10 light:border-slate-200 p-3 space-y-1 bg-white/[0.02] light:bg-slate-50/50">
+        {/* Modal Body with Navigation Sidebar */}
+        <div className="flex flex-col sm:flex-row flex-1 overflow-hidden">
+          {/* Settings Tabs (Horizontal scroll on mobile, Vertical list on desktop) */}
+          <div className="w-full sm:w-48 border-b sm:border-b-0 sm:border-r border-white/10 light:border-slate-200 p-2 sm:p-3 flex sm:flex-col overflow-x-auto sm:overflow-x-visible shrink-0 space-x-1 sm:space-x-0 sm:space-y-1 bg-white/[0.02] light:bg-slate-50/50 no-scrollbar">
             <button
               onClick={() => setActiveTab('general')}
-              className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
+              className={`whitespace-nowrap sm:w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shrink-0 ${
                 activeTab === 'general'
                   ? 'bg-[#6C63FF]/20 text-[#6C63FF] light:bg-[#6C63FF]/10 border border-[#6C63FF]/40'
                   : 'text-[#8b93a7] light:text-slate-600 hover:bg-white/5 light:hover:bg-slate-100 hover:text-[#edeef2]'
               }`}
             >
-              <Sliders className="w-4 h-4" /> General
+              <Sliders className="w-4 h-4 shrink-0" /> General
             </button>
 
             <button
               onClick={() => setActiveTab('voice')}
-              className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
+              className={`whitespace-nowrap sm:w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shrink-0 ${
                 activeTab === 'voice'
                   ? 'bg-[#6C63FF]/20 text-[#6C63FF] light:bg-[#6C63FF]/10 border border-[#6C63FF]/40'
                   : 'text-[#8b93a7] light:text-slate-600 hover:bg-white/5 light:hover:bg-slate-100 hover:text-[#edeef2]'
               }`}
             >
-              <Volume2 className="w-4 h-4" /> Voice & Speech
+              <Volume2 className="w-4 h-4 shrink-0" /> Voice & Speech
             </button>
 
             <button
               onClick={() => setActiveTab('data')}
-              className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
+              className={`whitespace-nowrap sm:w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shrink-0 ${
                 activeTab === 'data'
                   ? 'bg-[#6C63FF]/20 text-[#6C63FF] light:bg-[#6C63FF]/10 border border-[#6C63FF]/40'
                   : 'text-[#8b93a7] light:text-slate-600 hover:bg-white/5 light:hover:bg-slate-100 hover:text-[#edeef2]'
               }`}
             >
-              <Shield className="w-4 h-4" /> Data & Export
+              <Shield className="w-4 h-4 shrink-0" /> Data & Export
             </button>
 
             <button
               onClick={() => setActiveTab('shortcuts')}
-              className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
+              className={`whitespace-nowrap sm:w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shrink-0 ${
                 activeTab === 'shortcuts'
                   ? 'bg-[#6C63FF]/20 text-[#6C63FF] light:bg-[#6C63FF]/10 border border-[#6C63FF]/40'
                   : 'text-[#8b93a7] light:text-slate-600 hover:bg-white/5 light:hover:bg-slate-100 hover:text-[#edeef2]'
               }`}
             >
-              <Keyboard className="w-4 h-4" /> Shortcuts
+              <Keyboard className="w-4 h-4 shrink-0" /> Shortcuts
             </button>
 
             <button
               onClick={() => setActiveTab('about')}
-              className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
+              className={`whitespace-nowrap sm:w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors shrink-0 ${
                 activeTab === 'about'
                   ? 'bg-[#6C63FF]/20 text-[#6C63FF] light:bg-[#6C63FF]/10 border border-[#6C63FF]/40'
                   : 'text-[#8b93a7] light:text-slate-600 hover:bg-white/5 light:hover:bg-slate-100 hover:text-[#edeef2]'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-amber-400" /> About MAZEN AI
+              <Sparkles className="w-4 h-4 text-amber-400 shrink-0" /> About MAZEN AI
             </button>
           </div>
 
           {/* Tab Content Panel */}
-          <div className="flex-1 p-6 overflow-y-auto space-y-6 text-sm text-[#edeef2] light:text-slate-800">
+          <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 text-sm text-[#edeef2] light:text-slate-800 min-w-0">
             {activeTab === 'general' && (
               <div className="space-y-6">
                 <div>

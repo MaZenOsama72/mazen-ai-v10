@@ -23,20 +23,40 @@ code, pre, .font-mono {
   font-family: var(--font-mono);
 }
 
-/* Custom Scrollbars */
+/* Custom Scrollbars - ChatGPT / Claude style thin scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 html.light ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2);
 }
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
 ::-webkit-scrollbar-track {
   background: transparent;
+}
+
+/* Hide scrollbar utility for horizontal scroll pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile tap highlight reset */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Keyframe Animations */

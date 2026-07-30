@@ -537,7 +537,7 @@ export default function App() {
     null;
 
   return (
-    <div className={`flex h-screen w-screen overflow-hidden bg-[#090a0f] light:bg-[#f8fafc] text-[#edeef2] light:text-slate-900 ${fontSize === 'sm' ? 'text-xs' : fontSize === 'lg' ? 'text-base' : 'text-sm'}`}>
+    <div className={`flex h-[100dvh] w-full max-w-full overflow-hidden bg-[#090a0f] light:bg-[#f8fafc] text-[#edeef2] light:text-slate-900 ${fontSize === 'sm' ? 'text-xs' : fontSize === 'lg' ? 'text-base' : 'text-sm'}`}>
       {/* Sidebar Navigation */}
       <Sidebar
         conversations={conversations}
@@ -555,7 +555,7 @@ export default function App() {
       />
 
       {/* Main Workspace */}
-      <div className="flex-1 flex flex-col min-w-0 relative h-full">
+      <div className="flex-1 flex flex-col min-w-0 max-w-full relative h-full overflow-hidden">
         {/* Topbar Header */}
         <Topbar
           selectedModel={selectedModel}
@@ -607,7 +607,7 @@ export default function App() {
         <div
           ref={chatScrollRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto px-4 py-6 relative"
+          className="flex-1 overflow-y-auto px-2.5 sm:px-4 py-4 sm:py-6 relative w-full min-w-0"
         >
           {activeMessages.length === 0 ? (
             <HeroWelcome
@@ -615,7 +615,7 @@ export default function App() {
               onSelectPrompt={(prompt) => handleSendMessage(prompt)}
             />
           ) : (
-            <div className="max-w-4xl mx-auto space-y-4">
+            <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5 w-full min-w-0">
               {activeMessages.map((msg) => (
                 <ChatMessage
                   key={msg.id}
@@ -631,7 +631,7 @@ export default function App() {
           {showScrollJump && (
             <button
               onClick={() => scrollToBottom(true)}
-              className="fixed bottom-24 right-8 p-2.5 rounded-full bg-[#0d0f17] light:bg-white border border-white/20 light:border-slate-300 text-[#edeef2] light:text-slate-900 shadow-2xl hover:scale-110 active:scale-95 transition-all z-20"
+              className="fixed bottom-24 right-4 sm:right-8 p-3 rounded-full bg-[#0d0f17] light:bg-white border border-white/20 light:border-slate-300 text-[#edeef2] light:text-slate-900 shadow-2xl hover:scale-110 active:scale-95 transition-all z-20 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
               title="Jump to bottom"
             >
               <ChevronDown className="w-5 h-5" />

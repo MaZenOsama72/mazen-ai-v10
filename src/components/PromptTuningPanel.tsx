@@ -23,12 +23,12 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
     params.customSystemPrompt !== null ? params.customSystemPrompt : defaultSystemPrompt;
 
   return (
-    <div className="bg-[#0b0c14] light:bg-[#f1f5f9] border-b border-white/10 light:border-slate-200 p-4 transition-all duration-200 animate-fade-in">
-      <div className="max-w-4xl mx-auto space-y-4">
-        <div className="flex items-center justify-between">
+    <div className="bg-[#0b0c14] light:bg-[#f1f5f9] border-b border-white/10 light:border-slate-200 p-3 sm:p-4 transition-all duration-200 animate-fade-in shadow-inner z-20">
+      <div className="max-w-4xl mx-auto space-y-3.5">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <Sliders className="w-4 h-4 text-[#6C63FF]" />
-            <span className="font-mono text-xs uppercase tracking-wider text-[#6C63FF] font-semibold">
+            <Sliders className="w-4 h-4 text-[#6C63FF] shrink-0" />
+            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-[#6C63FF] font-semibold">
               MAZEN AI System Prompt & Controls
             </span>
             {params.customSystemPrompt !== null && (
@@ -39,7 +39,7 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
           </div>
           <button
             onClick={onReset}
-            className="text-xs text-[#8b93a7] hover:text-[#edeef2] flex items-center gap-1 hover:underline font-mono"
+            className="text-xs text-[#8b93a7] hover:text-[#edeef2] light:hover:text-slate-900 flex items-center gap-1.5 hover:underline font-mono py-1 px-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Reset Defaults
@@ -63,8 +63,8 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
                     e.target.value === defaultSystemPrompt ? null : e.target.value,
                 })
               }
-              rows={2}
-              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] font-mono text-xs resize-y"
+              rows={3}
+              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] focus:ring-1 focus:ring-[#6C63FF]/30 font-mono text-xs resize-y transition-all leading-relaxed"
               placeholder="Defines how MAZEN AI responds..."
             />
           </div>
@@ -76,7 +76,7 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
               value={params.context}
               onChange={(e) => onChange({ context: e.target.value })}
               rows={2}
-              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] font-mono text-xs resize-y"
+              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] focus:ring-1 focus:ring-[#6C63FF]/30 font-mono text-xs resize-y transition-all leading-relaxed"
               placeholder="Inject background knowledge, specs, or code snippets..."
             />
           </div>
@@ -88,7 +88,7 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
               value={params.constraints}
               onChange={(e) => onChange({ constraints: e.target.value })}
               rows={2}
-              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] font-mono text-xs resize-y"
+              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] focus:ring-1 focus:ring-[#6C63FF]/30 font-mono text-xs resize-y transition-all leading-relaxed"
               placeholder="Rules response must follow (e.g., max 200 words, strictly valid JSON)..."
             />
           </div>
@@ -100,17 +100,17 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
               type="text"
               value={params.outputFormat}
               onChange={(e) => onChange({ outputFormat: e.target.value })}
-              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] font-mono text-xs"
+              className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl p-2.5 text-[#edeef2] light:text-slate-900 focus:outline-none focus:border-[#6C63FF] focus:ring-1 focus:ring-[#6C63FF]/30 font-mono text-xs transition-all"
               placeholder="e.g. JSON schema, bullet points, Markdown code block..."
             />
           </div>
 
           {/* Temperature & Max Tokens */}
-          <div className="flex items-center gap-4 pt-2">
-            <div className="flex-1 space-y-1">
+          <div className="flex items-center gap-4 pt-1 flex-wrap sm:flex-nowrap">
+            <div className="flex-1 space-y-1 min-w-[160px]">
               <div className="flex justify-between font-mono text-[11px] text-[#8b93a7]">
                 <span>Temperature</span>
-                <span className="text-[#edeef2] font-semibold">{params.temperature.toFixed(2)}</span>
+                <span className="text-[#edeef2] light:text-slate-900 font-semibold">{params.temperature.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -119,11 +119,11 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
                 step="0.05"
                 value={params.temperature}
                 onChange={(e) => onChange({ temperature: parseFloat(e.target.value) })}
-                className="w-full accent-[#6C63FF] cursor-pointer"
+                className="w-full h-2 bg-white/10 light:bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#6C63FF]"
               />
             </div>
 
-            <div className="w-28 space-y-1">
+            <div className="w-full sm:w-32 space-y-1">
               <label className="font-mono text-[11px] text-[#8b93a7]">Max Tokens</label>
               <input
                 type="number"
@@ -132,7 +132,7 @@ export const PromptTuningPanel: React.FC<PromptTuningPanelProps> = ({
                 step="64"
                 value={params.maxTokens}
                 onChange={(e) => onChange({ maxTokens: parseInt(e.target.value, 10) || 2048 })}
-                className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl px-2.5 py-1 text-[#edeef2] light:text-slate-900 font-mono text-xs"
+                className="w-full bg-[#10121c] light:bg-white border border-white/10 light:border-slate-300 rounded-xl px-2.5 py-1.5 text-[#edeef2] light:text-slate-900 font-mono text-xs focus:outline-none focus:border-[#6C63FF]"
               />
             </div>
           </div>

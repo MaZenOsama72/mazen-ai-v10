@@ -108,9 +108,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Sidebar Container */}
       <aside
-        className={`group fixed lg:static inset-y-0 left-0 bg-[#0a0c12]/95 light:bg-[#f8fafc] border-r border-white/10 light:border-slate-200 flex flex-col z-40 backdrop-blur-2xl transition-all duration-300 ease-in-out shrink-0 relative ${
+        className={`group fixed lg:relative inset-y-0 left-0 bg-[#0a0c12]/95 light:bg-[#f8fafc] border-r border-white/10 light:border-slate-200 flex flex-col z-50 backdrop-blur-2xl transition-all duration-300 ease-in-out shrink-0 ${
           isOpenMobile
-            ? 'translate-x-0 w-[300px]'
+            ? 'translate-x-0 w-[300px] max-w-[85vw]'
             : `-translate-x-full lg:translate-x-0 ${isCollapsed ? 'lg:w-[72px]' : 'lg:w-[300px]'}`
         }`}
       >
