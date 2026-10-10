@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
 import { Topbar } from './components/Topbar';
 import { PromptTuningPanel } from './components/PromptTuningPanel';
@@ -651,6 +652,9 @@ export default function App() {
           setWebSearchMode={setWebSearchMode}
         />
       </div>
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
